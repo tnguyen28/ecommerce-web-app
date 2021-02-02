@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Switch, Route, Link, BrowserRouter as Router } from "react-router-dom";
-
 import axios from "axios";
 import jwt_decode from "jwt-decode";
 
@@ -24,9 +23,13 @@ export default class App extends Component {
 
   async componentDidMount() {
     let user = localStorage.getItem("user");
-    const products = await axios.get("http:localhost:3001/products");
+    let cart = localStorage.getItem("cart");
+
+    const products = await axios.get("http://localhost:3001/products");
     user = user ? JSON.parse(user) : null;
-    this.setState({ user, products: products.data });
+    cart = cart ? JSON.parse(cart) : {};
+
+    this.setState({ user, products: products.data, cart });
   }
 
   login = async (email, password) => {
@@ -64,6 +67,54 @@ export default class App extends Component {
     this.setState({ products }, () => callback && callback());
   };
 
+  addToCart = (cartItem) => {
+    let cart = this.state.cart;
+    if (cart[cartItem.id]) {
+      cart[cartItem.id].amount += cartItem.amount;
+    } else {
+      cart[cartItem.id] = cartItem;
+    }
+    if (cart[cartItem.id].amount > cart[cartItem.id].product.stock) {
+      cart[cartItem.id].amount = cart[cartItem.id].product.stock;
+    }
+    localStorage.setItem("cart", JSON.stringify(cart));
+    this.setState({ cart });
+  };
+
+  removeFromCart = (cartItemId) => {
+    let cart = this.state.cart;
+    delete cart[cartItemId];
+    localStorage.setItem("cart", JSON.stringify(cart));
+    this.setState({ cart });
+  };
+
+  clearCart = () => {
+    let cart = {};
+    localStorage.removeItem("cart");
+    this.setState({ cart });
+  };
+
+  checkout = () => {
+    if (!this.state.user) {
+      this.routerRef.current.history.push("/login");
+      return;
+    }
+
+    const cart = this.state.cart;
+
+    const products = this.state.products.map((p) => {
+      if (cart[p.name]) {
+        p.stock = p.stock - cart[p.name].amount;
+
+        axios.put(`http://localhost:3001/products/${p.id}`, { ...p });
+      }
+      return p;
+    });
+
+    this.setState({ products });
+    this.clearCart();
+  };
+
   render() {
     return (
       <Context.Provider
@@ -85,15 +136,15 @@ export default class App extends Component {
               aria-label="main navigation"
             >
               <div className="navbar-brand">
-                <b className="navbar-item is-size-4">ecommerce</b>
+                <b className="navbar-item is-size-4 ">ecommerce</b>
                 <label
                   role="button"
                   class="navbar-burger burger"
                   aria-label="menu"
                   aria-expanded="false"
                   data-target="navbarBasicExample"
-                  onClick={(event) => {
-                    event.preventDefault();
+                  onClick={(e) => {
+                    e.preventDefault();
                     this.setState({ showMenu: !this.state.showMenu });
                   }}
                 >
