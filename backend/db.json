@@ -15,42 +15,47 @@
     {
       "id": "hdmdu0t80yjkfqselfc",
       "name": "shoes",
-      "stock": 10,
+      "stock": 7,
       "price": 399.99,
       "shortDesc": "Nulla facilisi. Curabitur at lacus ac velit ornare lobortis.",
-      "description": "Cras sagittis. Praesent nec nisl a purus blandit viverra. Ut leo. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Fusce a quam."
+      "description": "Cras sagittis. Praesent nec nisl a purus blandit viverra. Ut leo. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Fusce a quam.",
+      "imgSrc": "https://vignette.wikia.nocookie.net/rail-nation/images/8/83/Shoes_128.png/revision/latest/scale-to-width-down/340?cb=20130626092133"
     },
     {
       "id": "3dc7fiyzlfmkfqseqam",
       "name": "bags",
-      "stock": 20,
+      "stock": 18,
       "price": 299.99,
       "shortDesc": "Nulla facilisi. Curabitur at lacus ac velit ornare lobortis.",
-      "description": "Cras sagittis. Praesent nec nisl a purus blandit viverra. Ut leo. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Fusce a quam."
+      "description": "Cras sagittis. Praesent nec nisl a purus blandit viverra. Ut leo. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Fusce a quam.",
+      "imgSrc": "https://ih1.redbubble.net/image.256106650.0221/tb,840x840,small-c,1,198,600,600-bg,f8f8f8.jpg"
     },
     {
       "id": "aoe8wvdxvrkfqsew67",
       "name": "shirts",
-      "stock": 15,
+      "stock": 10,
       "price": 149.99,
       "shortDesc": "Nulla facilisi. Curabitur at lacus ac velit ornare lobortis.",
-      "description": "Cras sagittis. Praesent nec nisl a purus blandit viverra. Ut leo. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Fusce a quam."
+      "description": "Cras sagittis. Praesent nec nisl a purus blandit viverra. Ut leo. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Fusce a quam.",
+      "imgSrc": "https://ih1.redbubble.net/image.256106624.0221/ssrco,slim_fit_t_shirt,flatlay,9ec0d5:0d26d5c715,front,wide_portrait,750x1000-bg,f8f8f8.u7.jpg"
     },
     {
       "id": "bmfrurdkswtkfqsf15j",
       "name": "shorts",
-      "stock": 5,
+      "stock": 0,
       "price": 109.99,
       "shortDesc": "Nulla facilisi. Curabitur at lacus ac velit ornare lobortis.",
-      "description": "Cras sagittis. Praesent nec nisl a purus blandit viverra. Ut leo. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Fusce a quam."
+      "description": "Cras sagittis. Praesent nec nisl a purus blandit viverra. Ut leo. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Fusce a quam.",
+      "imgSrc": "https://cdn.fleetfeet.com/products/rabbit/DSC00032.jpg/width:128-height:128/DSC00032.jpg?signature=51488d70"
     },
     {
       "id": "stzydoo60zfkkoiiypv",
       "name": "bananas",
       "price": "0.99",
-      "stock": "100",
+      "stock": 98,
       "shortDesc": "bananas!",
-      "description": "yummy bananas!"
+      "description": "yummy bananas!",
+      "imgSrc": "https://assets.onlinelabels.com/images/clip-art/pitr/Bananas%20icon-20185.png"
     }
   ]
 }
