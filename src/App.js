@@ -136,7 +136,12 @@ export default class App extends Component {
               aria-label="main navigation"
             >
               <div className="navbar-brand">
-                <b className="navbar-item is-size-4 ">ecommerce</b>
+                <a
+                  className="navbar-item"
+                  href="http://localhost:3000/products"
+                >
+                  Shoppy Shop
+                </a>
                 <label
                   role="button"
                   class="navbar-burger burger"
@@ -158,32 +163,54 @@ export default class App extends Component {
                   this.state.showMenu ? "is-active" : ""
                 }`}
               >
-                <Link to="/products" className="navbar-item">
-                  Products
-                </Link>
-                {this.state.user && this.state.user.accessLevel < 1 && (
-                  <Link to="/add-product" className="navbar-item">
-                    Add Product
+                <div class  ="navbar-start">
+                  <Link to="/products" className="navbar-item">
+                    Products
                   </Link>
-                )}
-                <Link to="/cart" className="navbar-item">
-                  Cart
-                  <span
-                    className="tag is-primary"
-                    style={{ marginLeft: "5px" }}
-                  >
-                    {Object.keys(this.state.cart).length}
-                  </span>
-                </Link>
-                {!this.state.user ? (
-                  <Link to="/login" className="navbar-item">
-                    Login
+                  {this.state.user && this.state.user.accessLevel < 1 && (
+                    <Link to="/add-product" className="navbar-item">
+                      Add Product
+                    </Link>
+                  )}
+                  <Link to="/cart" className="navbar-item">
+                    Cart
+                    <span
+                      className="tag is-primary"
+                      style={{ marginLeft: "5px" }}
+                    >
+                      {Object.keys(this.state.cart).length}
+                    </span>
                   </Link>
-                ) : (
-                  <Link to="/" onClick={this.logout} className="navbar-item">
-                    Logout
-                  </Link>
-                )}
+                  <div className="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link" href=" ">
+                      More
+                    </a>
+                    <div className="navbar-dropdown">
+                      <a class="navbar-item" href=" ">
+                        About
+                      </a>
+                      <hr class="navbar-divider" />
+                      <a class="navbar-item" href=" ">
+                        Contact
+                      </a>
+                    </div>
+                  </div>
+                  <div class="navbar-end">
+                    {!this.state.user ? (
+                      <Link to="/login" className="navbar-item">
+                        <strong>Login</strong>
+                      </Link>
+                    ) : (
+                      <Link
+                        to="/"
+                        onClick={this.logout}
+                        className="navbar-item"
+                      >
+                        <strong>Logout</strong>
+                      </Link>
+                    )}
+                  </div>
+                </div>
               </div>
             </nav>
             <Switch>
